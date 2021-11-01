@@ -1,0 +1,65 @@
+<mat-card fxFlex>
+  <h4>Datos personales</h4>
+  <hr />
+  <span class="instructions">
+    Por favor llena los siguientes datos
+  </span>
+  <div class="form" fxFill>
+    <form [formGroup]="form">
+      <div fxLayout="column" fxLayoutGap="24px">
+
+        <div class="grid-layout-select" fxLayout="row wrap" fxLayoutGap="80px">
+          <mat-form-field appearance="outline" fxFlex="50">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="description"  maxlength="250" />
+            <mat-error
+              *ngIf="
+                form?.get('nombre')?.touched &&
+                form?.get('nombre')?.hasError('required')
+              "
+              >Required</mat-error
+            >
+            <mat-hint>Required</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" fxFlex="50">
+            <mat-label>Dirección</mat-label>
+            <input matInput formControlName="direccion"  maxlength="500" />
+            <mat-error
+              *ngIf="
+                form?.get('direccion')?.touched &&
+                form?.get('direccion')?.hasError('required')
+              "
+              >Required</mat-error
+            >
+            <mat-hint>Required</mat-hint>
+          </mat-form-field>
+
+
+        </div>
+        <div class="grid-layout-radio" fxLayout="row wrap" fxLayoutGap="80px">
+          <mat-radio-group
+            formControlName="sexo"
+            fxLayout="column"
+            fxLayoutGap="14px"
+            color="primary"
+          >
+            <h6 class="lvp-label">Sexo</h6>
+            <mat-radio-button [value]="true"> M </mat-radio-button>
+            <mat-radio-button [value]="false"> F </mat-radio-button>
+            <mat-error
+              *ngIf="
+              form?.get('sexo')?.touched &&
+              form?.get('adaRatioParticipant')
+                  ?.hasError('required')
+              "
+              >Required</mat-error
+            >
+          </mat-radio-group>
+
+
+        </div>
+
+      </div>
+    </form>
+  </div>
+</mat-card>

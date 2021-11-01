@@ -1,0 +1,69 @@
+
+
+.debt-service-apportionment-details {
+  margin-top: 20px;
+}
+
+.form {
+  margin-left: 12px !important;
+  margin-top: 12px !important;
+}
+
+.lvp-label {
+  font-size: 12px !important;
+  color: gray !important;
+  line-height: 1em;
+  margin: 0;
+}
+
+.gl {
+  display: flex;
+}
+
+.information {
+  height: fit-content;
+  &__icon {
+    font-size: 17px;
+    height: 18px;
+    width: 17px;
+    position: relative;
+    top: -3px;
+  }
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.instructions {
+  font-weight: 500;
+}
+
+.tooltip {
+  position: absolute;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid rgba(149, 157, 165, 0.2);
+  padding: 10px 10px 10px 10px;
+  margin-left: 10px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.information:hover > div {
+  opacity: 1;
+}
+
+.grid-layout-radio {
+  max-width: 850px;
+
+  * {
+    margin: 5px 0;
+  }
+}
+
+.grid-layout-select {
+  max-width: 850px;
+
+  > * {
+    margin: 5px 0;
+  }
+}

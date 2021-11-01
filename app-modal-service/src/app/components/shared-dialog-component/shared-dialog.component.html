@@ -1,0 +1,73 @@
+<div mat-dialog-title class="d-title" >
+  <ng-container *ngIf="data?.titleIcon">
+    <mat-icon [ngClass]="data?.iconColor ? data!.iconColor! : 'blue'">
+      {{ data.titleIcon }}
+    </mat-icon>
+  </ng-container>
+  <h2>
+    {{ data?.title }}
+  </h2>
+</div>
+
+<mat-divider *ngIf="!data?.hideTitleDivider"></mat-divider>
+<div mat-dialog-content *ngIf="data?.content" class="main-container">
+  <span [innerHTML]="data?.content"></span>
+</div>
+<div mat-dialog-content *ngIf="!data?.content" class="empty-container"></div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions align="end">
+  <ng-container
+    *ngFor="let item of data?.controls"
+    [ngTemplateOutlet]="
+      item.type === 'normal'
+        ? normalBtn
+        : item.type === 'stroke'
+        ? strokeBtn
+        : raisedBtn
+    "
+    [ngTemplateOutletContext]="{ item: item }"
+  >
+  </ng-container>
+</div>
+
+<!-- *********************** -->
+<!-- TEMPLATES ************* -->
+<!-- *********************** -->
+
+<ng-template let-item="item" #normalBtn>
+  <button
+    mat-button
+    [style.color]="item.color"
+    (click)="close(item.action)"
+    *ngIf="!item.hide"
+  >
+    <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
+    {{ item.label }}
+  </button>
+</ng-template>
+
+<ng-template let-item="item" #strokeBtn>
+  <button
+    mat-stroked-button
+    [style.color]="item.color"
+    (click)="close(item.action)"
+    *ngIf="!item.hide"
+  >
+    <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
+    {{ item.label }}
+  </button>
+</ng-template>
+
+<ng-template let-item="item" #raisedBtn>
+  <button
+    mat-raised-button
+    [style.color]="item.color"
+    (click)="close(item.action)"
+    *ngIf="!item.hide"
+  >
+    <mat-icon *ngIf="item.icon">
+      {{ item.icon }}
+    </mat-icon>
+    {{ item.label }}
+  </button>
+</ng-template>

@@ -1,0 +1,50 @@
+
+
+button {
+  margin-right: 12px;
+  margin-left: 12px;
+}
+
+.main-container {
+  padding: 24px;
+  font-size: 14px;
+}
+
+.empty-container {
+  height: 8px;
+}
+
+mat-icon.success {
+  color: green;
+}
+
+mat-icon.warning {
+  color: yellow;
+}
+
+mat-icon.info {
+  color: blue;
+}
+
+h2 {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+}
+
+mat-icon {
+  font-size: 1.5em;
+  margin-right: 16px;
+}
+
+.d-title {
+  display: flex;
+  margin: 0 !important;
+}
+
+.blue-icon-color {
+  color: blue;
+}
+
+mat-icon.primary {
+  color: blue;
+}
