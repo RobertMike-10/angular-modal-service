@@ -8,7 +8,7 @@
     <form [formGroup]="form">
       <div fxLayout="column" fxLayoutGap="24px">
 
-        <div class="grid-layout-select" fxLayout="row wrap" fxLayoutGap="80px">
+        <div class="grid-layout-select" fxLayout="row wrap" fxLayoutGap="240px">
           <mat-form-field appearance="outline" fxFlex="50">
             <mat-label>Nombre</mat-label>
             <input matInput formControlName="description"  maxlength="250" />
@@ -21,6 +21,8 @@
             >
             <mat-hint>Required</mat-hint>
           </mat-form-field>
+        </div>
+        <div class="grid-layout-select" fxLayout="row wrap" fxLayoutGap="240px">
           <mat-form-field appearance="outline" fxFlex="50">
             <mat-label>Dirección</mat-label>
             <input matInput formControlName="direccion"  maxlength="500" />
@@ -33,8 +35,20 @@
             >
             <mat-hint>Required</mat-hint>
           </mat-form-field>
-
-
+        </div>
+        <div class="grid-layout-select" fxLayout="row wrap" fxLayoutGap="240px">
+          <mat-form-field appearance="outline" fxFlex="50">
+            <mat-label>Edad</mat-label>
+            <input matInput  type="number" formControlName="edad" />
+            <mat-error
+              *ngIf="
+                form?.get('edad')?.touched &&
+                form?.get('edad')?.hasError('required')
+              "
+              >Required</mat-error
+            >
+            <mat-hint>Required</mat-hint>
+          </mat-form-field>
         </div>
         <div class="grid-layout-radio" fxLayout="row wrap" fxLayoutGap="80px">
           <mat-radio-group
@@ -59,6 +73,9 @@
 
         </div>
 
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button color="primary" [disabled]="!form.valid" cdkFocusInitial  (click)="Save()"> Save</button>
       </div>
     </form>
   </div>

@@ -27,7 +27,7 @@ export class FormComponent implements OnInit{
       Validators.maxLength(250),
     ]),
     edad: new CustomFormControl("Edad", null, [
-      Validators.required
+      Validators.required,Validators.pattern("^[0-9]*$")
     ]),
     direccion: new CustomFormControl("Dirección", null, [
       Validators.required,
