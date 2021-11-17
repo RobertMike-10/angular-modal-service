@@ -31,9 +31,9 @@
                 form?.get('direccion')?.touched &&
                 form?.get('direccion')?.hasError('required')
               "
-              >Required</mat-error
+              >Requerido</mat-error
             >
-            <mat-hint>Required</mat-hint>
+            <mat-hint>Requerido</mat-hint>
           </mat-form-field>
         </div>
         <div class="grid-layout-select" fxLayout="row wrap" fxLayoutGap="240px">
@@ -45,9 +45,15 @@
                 form?.get('edad')?.touched &&
                 form?.get('edad')?.hasError('required')
               "
-              >Required</mat-error
+              >Requerido</mat-error>
+              <mat-error
+              *ngIf="
+                form?.get('edad')?.touched &&
+                form?.get('edad')?.hasError('pattern')
+              "
+              >Requerido</mat-error
             >
-            <mat-hint>Required</mat-hint>
+            <mat-hint>Requerido</mat-hint>
           </mat-form-field>
         </div>
         <div class="grid-layout-radio" fxLayout="row wrap" fxLayoutGap="80px">
@@ -66,8 +72,9 @@
               form?.get('adaRatioParticipant')
                   ?.hasError('required')
               "
-              >Required</mat-error
+              >Requerido</mat-error
             >
+            <mat-hint>Requerido</mat-hint>
           </mat-radio-group>
 
 
